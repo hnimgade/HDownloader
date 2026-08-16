@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H Downloader</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #4f8cff;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .logo span { color: var(--accent); }
+  .tagline {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 640px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.1s ease, background 0.1s ease;
+  }
+  .card:hover { background: #263449; transform: translateY(-1px); }
+  .card .icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .card p { color: var(--muted); font-size: 0.85rem; }
+  .hint {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+  <div class="logo">H<span>Downloader</span></div>
+  <div class="tagline">Download videos, audio and files from the built-in browser</div>
+
+  <div class="grid">
+    <a class="card" href="https://www.youtube.com/results?search_query=music+video">
+      <div class="icon">&#9660;</div>
+      <h2>Browse &amp; download</h2>
+      <p>Open a page, tap a media link, and it downloads.</p>
+    </a>
+    <a class="card" href="https://archive.org/details/audio">
+      <div class="icon">&#9834;</div>
+      <h2>Audio</h2>
+      <p>Direct .mp3 / .m4a links are picked up automatically.</p>
+    </a>
+    <a class="card" href="https://pixabay.com/videos/">
+      <div class="icon">&#9654;</div>
+      <h2>Video</h2>
+      <p>Detects .mp4, .webm and other media files.</p>
+    </a>
+    <a class="card" href="https://www.google.com">
+      <div class="icon">&#9650;</div>
+      <h2>Search</h2>
+      <p>Or type a query in the address bar above.</p>
+    </a>
+  </div>
+
+  <div class="hint">
+    Tip: use the address bar to paste any download link directly.<br>
+    Tracked downloads appear in the Downloads tab.
+  </div>
+</body>
+</html>

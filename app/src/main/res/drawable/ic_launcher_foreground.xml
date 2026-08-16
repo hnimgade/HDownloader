@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Circular badge -->
+    <path
+        android:fillColor="#1B1B2F"
+        android:pathData="M54,54m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Down arrow -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M54,30 L66,30 L66,54 L78,54 L54,78 L30,54 L42,54 Z" />
+    <path
+        android:fillColor="#22D3EE"
+        android:pathData="M50,30 L58,30 L58,56 L66,56 L54,68 L42,56 L50,56 Z" />
+    <path
+        android:fillColor="#22D3EE"
+        android:pathData="M42,80 L66,80 L66,86 L42,86 Z" />
+</vector>

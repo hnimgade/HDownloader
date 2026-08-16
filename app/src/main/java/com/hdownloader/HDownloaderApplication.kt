@@ -1,0 +1,43 @@
+package com.hdownloader
+
+import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
+import com.hdownloader.core.category.repository.CategoryRepository
+import com.hdownloader.core.download.manager.DownloadManager
+import com.hdownloader.core.download.worker.DownloadWorker
+import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltAndroidApp
+class HDownloaderApplication : Application(), Configuration.Provider {
+
+    @Inject
+    lateinit var categoryRepository: CategoryRepository
+
+    @Inject
+    lateinit var downloadManager: DownloadManager
+
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
+
+    private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
+
+    override fun onCreate() {
+        super.onCreate()
+        applicationScope.launch {
+            runCatching { categoryRepository.ensureDefaultCategories() }
+        }
+        downloadManager.startObserver()
+        DownloadWorker.enqueue(this)
+    }
+}
